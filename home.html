@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SquadUp</title>
+  <link rel="icon" type="image/x-icon" href="logo.png" />
+
+  <!-- CSS styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <!-- SquadUp logo -->
+        <a href="home.html" class="nav_logo">
+          <img src="logo.png" alt="SquadUp logo" />
+        </a>
+      </div>
+      <ul class="nav_items">
+        <!-- Navigation links -->
+        <li class="nav_item">
+          <a href="home.html" class="nav_link">Home</a>
+          <a href="event.html" class="nav_link">Event</a>
+          <a href="team.html" class="nav_link">Team</a>
+        </li>
+      </ul>
+      <div class="buttoncontainer">
+        <!-- Login and Signup buttons -->
+        <button class="login-button" id="form-open">Login</button>
+        <button class="signup-button" id="triggerButton">Signup</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Home section -->
+  <section class="home">
+
+    <!-- Home content -->
+    <div class="home_content">
+      <h1 class="line-1">We're SquadUP</h1>
+      <h2 class="line-2">Igniting Your Sporting Spirit!</h2>
+      <div class="button-container-2">
+        <button class="explore-events">Explore Events</button>
+        <button class="explore-teams">Explore Teams</button>
+      </div>
+    </div>
+
+    <div class="form_container">
+      <img src="cross.png" alt="Close" class="form_close" />
+      <!-- Login Form -->
+      <div class="form login_form">
+        <form action="#" id="login_form">
+          <h2>Login</h2>
+          <!-- Email input -->
+          <div class="input_box">
+            <input name="email" type="email" placeholder="ENTER YOUR EMAIL" required />
+          </div>
+          <!-- Password input -->
+          <div class="input_box">
+            <input name="password" type="password" placeholder="ENTER YOUR PASSWORD" required />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <!-- Remember me checkbox and forgot password link -->
+          <div class="option_field">
+            <span class="checkbox">
+              <input type="checkbox" id="check" />
+              <label for="check">Remember me</label>
+            </span>
+            <a href="#" class="forgot_pw">Forgot password?</a>
+          </div>
+          <!-- Login button -->
+          <button class="button">Login</button>
+          <!-- Signup link -->
+          <div class="login_signup">
+            Don't have an account? <a href="#" id="signup">Signup</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Forgot Password Form (hidden by default) -->
+      <div class="forgot_password_form">
+        <form>
+          <h2>Forgot Password?</h2>
+          <p>Enter the email you registered with and we'll send a link to reset your password:</p>
+          <div class="input_box">
+            <input type="email" placeholder="ENTER YOUR EMAIL" required />
+          </div>
+          <button type="submit" class="button">Reset Password</button>
+          <p class="cancel_link">Go Back</p>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form signup_form">
+        <form action="#" id="signup_form">
+          <h2>Signup</h2>
+          <!-- First name and last name inputs -->
+          <div class="input_container">
+            <div class="input_box">
+              <input name="first_name" type="name" placeholder="FIRST NAME" required />
+            </div>
+            <div class="input_box">
+              <input name="last_name" type="name" placeholder="LAST NAME" required />
+            </div>
+          </div>
+          <!-- Email, username, and password inputs -->
+          <div class="input_box">
+            <input name="email" type="email" placeholder="ENTER YOUR EMAIL" required />
+          </div>
+          <div class="input_box">
+            <input name="username" type="username" placeholder="ENTER USERNAME" required />
+          </div>
+          <div class="input_box">
+            <input name="password" type="password" placeholder="CREATE PASSWORD" required />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input name="confirm_password" type="password" placeholder="CONFIRM PASSWORD" required />
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <!-- Signup button -->
+          <button class="button">Signup</button>
+          <!-- Login link -->
+          <div class="login_signup">
+            Already have an account? <a href="#" id="login">Login</a>
+          </div>
+  </section>
+
+  <!-- JavaScript script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
