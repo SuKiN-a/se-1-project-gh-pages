@@ -324,6 +324,18 @@ async function createTeam(title, description, maximum_number) {
   }
 }
 
+/**
+ returns a list of all teams
+  like:
+  [
+    {
+      "id": number,
+      "creatorId": number,
+      "team_name": string,
+      "team_max": number
+    }
+  ]
+*/
 async function allTeams() {
   const res = await fetch(BACKEND_URL + "/team/all", {
     method: "GET",
