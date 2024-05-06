@@ -108,7 +108,7 @@ a {
 }
 
 .line-1,
-.create_event {
+.create_team {
   margin-bottom: 0;
 }
 
@@ -128,15 +128,8 @@ a {
   font-weight: bold;
 }
 
-.line-2 {
-  font-size: 50px;
-  color: #fff;
-  margin-bottom: 100px;
-  font-weight: bold;
-}
+/*Login-signup form*/
 
-/*signUP form*/
-/* From */
 .home::before {
   content: "";
   position: absolute;
@@ -154,7 +147,7 @@ a {
 }
 .form_container {
   position: fixed;
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -162,7 +155,7 @@ a {
   z-index: 101;
   background: #fff;
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
@@ -183,10 +176,12 @@ a {
   display: none;
 }
 .form_close {
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 10px;
-  right: 20px;
-  color: #0b0217;
+  right: 10px;
+  color: #000;
   font-size: 22px;
   opacity: 0.7;
   cursor: pointer;
@@ -195,10 +190,27 @@ a {
   font-size: 22px;
   color: #0b0217;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.form_container p {
+  font-size: 14px;
+  color: #0b0217;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.name_input {
+  display: flex;
+  position: relative;
+  flex: 1;
+  width: 100%;
 }
 .input_container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  gap: 20px;
 }
 .input_box:first-child {
   margin-right: 10px;
@@ -207,8 +219,10 @@ a {
   flex: 1;
   position: relative;
   margin-top: 10px;
-  width: 100%;
-  height: 44px;
+  left: 20px;
+  top: 10px;
+  width: 90%;
+  height: 40px;
 }
 .input_box input {
   height: 100%;
@@ -219,7 +233,7 @@ a {
   color: #333;
   transition: all 0.2s ease;
   border: 1.5px solid #aaaaaa;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .input_box input:focus {
   border-color: #e1811f;
@@ -261,6 +275,9 @@ a {
   text-decoration: underline;
 }
 .checkbox {
+  position: relative;
+  left: 20px;
+  top: 10px;
   display: flex;
   column-gap: 8px;
   white-space: nowrap;
@@ -274,20 +291,84 @@ a {
   user-select: none;
   color: #0b0217;
 }
+.forgot_pw {
+  position: relative;
+  left: -15px;
+  top: 10px;
+  display: flex;
+}
 .form_container .button {
-  background: #e1811f;
-  margin-top: 30px;
-  width: 60%;
-  padding: 10px 0;
-  border-radius: 10px;
+  border-style: solid;
+  border-radius: 6px;
   border-color: #fff;
+  background: #343434;
+  margin-top: 30px;
+  width: 80%;
+  padding: 10px 0;
   text-transform: uppercase;
   height: 44px;
+  cursor: pointer;
+}
+.form_container .button:hover {
+  background: #e1811f;
+}
+.go_back {
+  position: relative;
+  left: 140px;
+  top: 10px;
+  display: flex;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.go_back:hover {
+  text-decoration: underline;
+  color: #e1811f;
 }
 .login_signup {
   font-size: 12px;
   text-align: center;
   margin-top: 15px;
+}
+/*End of Login-signup form*/
+
+.filter-button {
+  width: 120px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.6);
+  border: 0px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 20px;
+
+  cursor: pointer;
+  position: fixed;
+  top: 120px;
+  right: 290px;
+  transition: background-color 0.3s;
+}
+.filter-button:hover {
+  background-color: #e1811f;
+}
+.filter-button img {
+  position: absolute;
+  top: 7px;
+  right: 22px;
+}
+/* Pseudo-element for vertical line */
+.filter-button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -13px;
+  top: 53%;
+  transform: translateY(-50%);
+  height: 27px;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 /* Button used to open the form */
 .open-button {
@@ -298,7 +379,7 @@ a {
   padding: 8px 24px;
   cursor: pointer;
   position: fixed;
-  top: 12%;
+  top: 120px;
   right: 9%;
   transition: background-color 0.3s;
 }
@@ -394,4 +475,169 @@ a {
   font-family: Inter;
   margin-left: 9%;
   margin-top: -3%;
+}
+
+/* team card container */
+.team-card-container {
+  width: 82%;
+  position: relative;
+  border-radius: 8px solid #000;
+  background-color: transparent;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  font-family: Inter;
+  top: -75px;
+  left: 109px;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.team-cards {
+  width: 280px;
+  position: relative;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  height: 190px;
+  overflow: hidden;
+  background-color: #fff;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  font-family: Inter;
+}
+.team-title {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #343434;
+}
+.shoot-hoops-dominate {
+  position: absolute;
+  top: 43px;
+  left: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #999;
+  display: inline-block;
+  width: 255px;
+}
+.view-more-button {
+  padding: 10px 24px;
+  position: relative;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid #999;
+  margin-top: 8px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  left: 16px;
+  top: -65px;
+  font-size: 13px;
+}
+.view-more-button:hover {
+  background-color: #e1811f;
+  color: #fff;
+}
+
+/*filter form*/
+
+/* The popup form - hidden by default */
+.form_heading {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  text-transform: uppercase;
+}
+.cross {
+  left: 90%;
+  top: 2%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  opacity: 0.7;
+}
+.inputbox {
+  width: 320px;
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  height: 44px;
+  color: #000;
+  padding: 0 10px;
+}
+.team-name-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.inputbox1 {
+  width: 320px;
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  height: 128px;
+  color: #000;
+  padding: 10px 10px 0 10px;
+  font-family: Inter;
+}
+.frame-parent {
+  position: absolute;
+  top: 89px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  font-size: 14px;
+}
+.create {
+  width: 200px;
+  position: relative;
+  height: 40px;
+  text-transform: uppercase;
+  left: 90px;
+  top: 445px;
+  background-color: #343434;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.create:hover {
+  background-color: #e1811f;
+}
+.create_team_form {
+  display: flex;
+  width: 30%;
+  position: relative;
+  border-radius: 8px;
+  background-color: #fff;
+  height: 520px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 24px;
+  color: #333;
+  font-family: Inter;
+  z-index: 100;
+  top: -180px;
+  left: 500px;
 }

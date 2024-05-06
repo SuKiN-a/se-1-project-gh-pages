@@ -13,8 +13,8 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-     </head>
-     <body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
       <nav class="nav">
@@ -34,123 +34,300 @@
         </ul>
         <div class="buttoncontainer">
           <!-- Login and Signup buttons -->
-          <button class="login-button" id="form-open">Login</button>
-          <button class="signup-button" id="triggerButton">Signup</button>
+          <button class="login-button" id="form-login">Login</button>
+          <button class="signup-button" id="form_signup">Signup</button>
         </div>
       </nav>
     </header>
 
     <!-- Home section -->
     <section class="home">
-
       <!-- Home content -->
       <div class="home_content">
-        <div class="button-container-2">
-          <h1 class="line-1">Events</h1>
-          
-          <!-- A button to open the popup form -->
-     <button class="open-button" onclick="openForm()">CREATE EVENT</button>
+        <h1 class="line-1">Events</h1>
 
-     
-          
-        </div>
+        <!-- A button to open the create event form -->
+        <button class="open-button" onclick="openForm()">CREATE EVENT</button>
 
-        <div class="event-card-container">
-          <div class="event-cards">
-          <img src="event-banner.png" alt="event card banner">
-          <div class="event-title">Event Title</div>
-          <div class="shoot-hoops-dominate">Shoot hoops, dominate the court, score big.</div>
-          </div>
-          <div class="frame-parent">
-          <div class="frame-group">
-          <div class="frame-wrapper">
-            <img src="calander icon.png" alt="event card banner">
-            
-          </div>
-          <div class="div">06/27/2024 - 06/30/2024</div>
-          </div>
-          <div class="frame-group">
-            <img src="members icon.png" alt="event card banner">
-          <div class="div">2 / 20
-          </div>
-          </div>
-          <button class="view-more-button" id="eventcardbutton">VIEW MORE</button>
-        </div>
+        <!-- The create event form -->
+        <form id="creatEventForm">
+          <div class="registration">
+            <b class="create-event">create event</b>
+            <img
+              src="cross icon.png"
+              alt="cross"
+              id="cross"
+              class="cross"
+              onclick="closeForm()"
+            />
 
-      </div>
-      
-      <div class="form_container">
-        <img src="cross.png" alt="Close" class="form_close" />
-        
-        <!-- Login Form -->
-      <div class="form login_form">
-    <form action="#">
-    <h2>Login</h2>
-    <!-- Email input -->
-    <div class="input_box">
-      <input type="email" placeholder="ENTER YOUR EMAIL" required />
-    </div>
-    <!-- Password input -->
-    <div class="input_box">
-      <input type="password" placeholder="ENTER YOUR PASSWORD" required />
-      <i class="uil uil-eye-slash pw_hide"></i>
-    </div>
-    <!-- Remember me checkbox and forgot password link -->
-    <div class="option_field">
-      <span class="checkbox">
-        <input type="checkbox" id="check" />
-        <label for="check">Remember me</label>
-      </span>
-      <a href="#" class="forgot_pw">Forgot password?</a>
-    </div>
-    <!-- Login button -->
-    <button class="button">Login</button>
-    <!-- Signup link -->
-    <div class="login_signup">
-      Don't have an account? <a href="#" id="signup">Signup</a>
-    </div>
-   </form>
-         </div>
-
-     <!-- Forgot Password Form (hidden by default) -->
-      <div class="forgot_password_form">
-   <form>
-    <h2>Forgot Password?</h2>
-    <p>Enter the email you registered with and we'll send a link to reset your password:</p>
-    <div class="input_box">
-      <input type="email" placeholder="ENTER YOUR EMAIL" required />
-    </div>
-    <button type="submit" class="button">Reset Password</button>
-    <p class="cancel_link">Go Back</p>
-     </form>
-          </div>
-
-        <!-- Signup Form -->
-        <div class="form signup_form">
-          <form action="#">
-            <h2>Signup</h2>
-            <!-- First name and last name inputs -->
-            <div class="input_container">
-              <div class="input_box">
-                <input type="name" placeholder="FIRST NAME" required />
+            <div class="frame-parent">
+              <!-- Event Title -->
+              <div class="event-title-parent">
+                <div class="add-input-title">Event Title</div>
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="ADD YOUR TITLE HERE"
+                  maxlength="20"
+                />
               </div>
-              <div class="input_box">
-                <input type="name" placeholder="LAST NAME" required />
+
+              <!-- Description -->
+              <div class="event-title-parent">
+                <div class="add-input-title">Description</div>
+
+                <textarea
+                  class="inputbox1"
+                  placeholder="ADD YOUR DESCRIPTION HERE"
+                  maxlength="200"
+                ></textarea>
+              </div>
+
+              <!-- Maximum Participant -->
+              <div class="frame-wrapper">
+                <div class="maximum-participant-parent">
+                  <div class="add-input-title">Maximum Participant</div>
+
+                  <input
+                    type="number"
+                    class="input"
+                    placeholder="0"
+                    maxlength="4"
+                  />
+                </div>
               </div>
             </div>
-            <!-- Email, username, and password inputs -->
+
+            <div class="frame-group">
+              <!-- Registration Time -->
+              <div class="frame-wrapper">
+                <div class="maximum-participant-parent">
+                  <div class="add-input-title">Registration Time</div>
+
+                  <input
+                    type="text"
+                    class="input"
+                    id="timeRange"
+                    placeholder="HH:MM - HH:MM"
+                  />
+                </div>
+              </div>
+
+              <!-- Date -->
+              <div class="event-title-parent">
+                <div class="add-input-title">Date</div>
+
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="Start - End"
+                  maxlength="20"
+                />
+              </div>
+
+              <!-- Connect to Teams -->
+              <div class="event-title-parent">
+                <div class="add-input-title">Connect to Teams</div>
+
+                <select class="input">
+                  <option value="">Select your team</option>
+                  <!-- Add team options here -->
+                </select>
+              </div>
+
+              <!-- Location -->
+              <div class="event-title-parent">
+                <div class="add-input-title">Location</div>
+
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="Location"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+
+            <!-- Upload Banner -->
+            <div
+              class="rectangle-parent"
+              onclick="document.getElementById('fileInput').click();"
+            >
+              <div id="uploadArea" class="upload-area">
+                <img
+                  alt="upload icon"
+                  src="upload icon.png"
+                  id="uploadPreview"
+                  class="centered"
+                />
+                <span class="upload-text">UPLOAD YOUR BANNER HERE</span>
+              </div>
+              <input
+                type="file"
+                id="fileInput"
+                style="display: none"
+                onchange="previewFile()"
+                accept="image/*"
+              />
+            </div>
+
+            <!-- Create Button -->
+            <button type="submit" class="create">Create</button>
+          </div>
+        </form>
+      </div>
+      <!-- Container for the event cards -->
+      <div class="event-card-container">
+        <div class="event-cards">
+          <img src="event-banner.png" alt="event card banner" />
+          <div class="event-title">Event Title</div>
+          <div class="shoot-hoops-dominate">
+            Shoot hoops, dominate the court, score big.
+          </div>
+        </div>
+        <div class="frame-parent">
+          <div class="event-frame-group">
+            <div class="event-card-date">
+              <img src="calander icon.png" alt="event card banner" />
+              <div class="date">06/27/2024 - 06/30/2024</div>
+            </div>
+          </div>
+          <div class="event-frame-group">
+            <div class="event-card-members">
+              <img src="members icon.png" alt="event card banner" />
+              <div class="members">2 / 20</div>
+            </div>
+          </div>
+          <button class="view-more-button" id="eventcardbutton">
+            VIEW MORE
+          </button>
+        </div>
+      </div>
+
+      <div class="form_container">
+        <img src="cross icon.png" alt="Close" class="form_close" />
+
+        <!-- Login Form -->
+        <div class="form login_form">
+          <form action="#" id="login_form">
+            <h2>LOGIN</h2>
+            <!-- Email input -->
+            <div class="input_box">
+              <input
+                name="email"
+                type="email"
+                placeholder="ENTER YOUR EMAIL"
+                required
+              />
+            </div>
+            <!-- Password input -->
+            <div class="input_box">
+              <input
+                name="password"
+                type="password"
+                placeholder="ENTER YOUR PASSWORD"
+                required
+              />
+              <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+            <!-- Remember me checkbox and forgot password link -->
+            <div class="option_field">
+              <span class="checkbox">
+                <input type="checkbox" id="check" />
+                <label for="check">Remember me</label>
+              </span>
+              <a href="#" class="forgot_pw" id="forgot_pw_link"
+                >Forgot password?</a
+              >
+            </div>
+            <!-- Login button -->
+            <button class="button">Login</button>
+            <!-- Signup link -->
+            <div class="login_signup">
+              Don't have an account? <a href="#" id="signup">Signup</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Forgot Password Form (hidden by default) -->
+        <div
+          class="form forgot_password_form"
+          id="forgot_password_form"
+          style="display: none"
+        >
+          <form action="#">
+            <h2>Forgot Password?</h2>
+            <p>
+              Enter the email address you use on SquadUP. We'll send you a link
+              to reset your password.
+            </p>
             <div class="input_box">
               <input type="email" placeholder="ENTER YOUR EMAIL" required />
             </div>
+            <button type="submit" class="button">Reset Password</button>
+            <button type="button" class="go_back" id="go_back_button">
+              Go Back
+            </button>
+          </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form signup_form">
+          <form action="#" id="signup_form">
+            <h2>Signup</h2>
+            <!-- First name and last name inputs -->
             <div class="input_box">
-              <input type="username" placeholder="ENTER USERNAME" required />
+              <input
+                class="name_input"
+                name="first_name"
+                type="name"
+                placeholder="FIRST NAME"
+                required
+              />
             </div>
             <div class="input_box">
-              <input type="password" placeholder="CREATE PASSWORD" required />
+              <input
+                class="name_input"
+                name="last_name"
+                type="name"
+                placeholder="LAST NAME"
+                required
+              />
+            </div>
+            <!-- Email, username, and password inputs -->
+            <div class="input_box">
+              <input
+                name="email"
+                type="email"
+                placeholder="ENTER YOUR EMAIL"
+                required
+              />
+            </div>
+            <div class="input_box">
+              <input
+                name="username"
+                type="username"
+                placeholder="ENTER USERNAME"
+                required
+              />
+            </div>
+            <div class="input_box">
+              <input
+                name="password"
+                type="password"
+                placeholder="CREATE PASSWORD"
+                required
+              />
               <i class="uil uil-eye-slash pw_hide"></i>
             </div>
             <div class="input_box">
-              <input type="password" placeholder="CONFIRM PASSWORD" required />
+              <input
+                name="confirm_password"
+                type="password"
+                placeholder="CONFIRM PASSWORD"
+                required
+              />
               <i class="uil uil-eye-slash pw_hide"></i>
             </div>
             <!-- Signup button -->
@@ -159,6 +336,9 @@
             <div class="login_signup">
               Already have an account? <a href="#" id="login">Login</a>
             </div>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- JavaScript script -->

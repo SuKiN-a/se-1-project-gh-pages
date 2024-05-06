@@ -98,7 +98,7 @@ a {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("background.png");
   background-size: cover;
   background-position: center;
@@ -174,9 +174,8 @@ a {
   gap: 50px;
 }
 
-/*signUP form*/
+/*Login-signup form*/
 
-/* From */
 .home::before {
   content: "";
   position: absolute;
@@ -194,7 +193,7 @@ a {
 }
 .form_container {
   position: fixed;
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -202,7 +201,7 @@ a {
   z-index: 101;
   background: #fff;
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
@@ -223,10 +222,12 @@ a {
   display: none;
 }
 .form_close {
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 10px;
-  right: 20px;
-  color: #0b0217;
+  right: 10px;
+  color: #000;
   font-size: 22px;
   opacity: 0.7;
   cursor: pointer;
@@ -235,20 +236,39 @@ a {
   font-size: 22px;
   color: #0b0217;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.form_container p {
+  font-size: 14px;
+  color: #0b0217;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.name_input {
+  display: flex;
+  position: relative;
+  flex: 1;
+  width: 100%;
 }
 .input_container {
-  display: flex; /* This will create a flex container */
-  justify-content: space-between; /* This will space out the child elements evenly */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
 }
 .input_box:first-child {
-  margin-right: 10px; /* Adds space to the right of the first input box */
+  margin-right: 10px;
 }
 .input_box {
   flex: 1;
   position: relative;
   margin-top: 10px;
-  width: 100%;
-  height: 44px;
+  left: 20px;
+  top: 10px;
+  width: 90%;
+  height: 40px;
 }
 .input_box input {
   height: 100%;
@@ -259,7 +279,7 @@ a {
   color: #333;
   transition: all 0.2s ease;
   border: 1.5px solid #aaaaaa;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .input_box input:focus {
   border-color: #e1811f;
@@ -301,6 +321,9 @@ a {
   text-decoration: underline;
 }
 .checkbox {
+  position: relative;
+  left: 20px;
+  top: 10px;
   display: flex;
   column-gap: 8px;
   white-space: nowrap;
@@ -314,18 +337,44 @@ a {
   user-select: none;
   color: #0b0217;
 }
+.forgot_pw {
+  position: relative;
+  left: -15px;
+  top: 10px;
+  display: flex;
+}
 .form_container .button {
-  background: #e1811f;
-  margin-top: 30px;
-  width: 60%;
-  padding: 10px 0;
-  border-radius: 10px;
+  border-style: solid;
+  border-radius: 6px;
   border-color: #fff;
+  background: #343434;
+  margin-top: 30px;
+  width: 80%;
+  padding: 10px 0;
   text-transform: uppercase;
   height: 44px;
+  cursor: pointer;
+}
+.form_container .button:hover {
+  background: #e1811f;
+}
+.go_back {
+  position: relative;
+  left: 140px;
+  top: 10px;
+  display: flex;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.go_back:hover {
+  text-decoration: underline;
+  color: #e1811f;
 }
 .login_signup {
   font-size: 12px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
