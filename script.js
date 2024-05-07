@@ -91,6 +91,31 @@ document
     document.getElementById("login_form").style.display = "block";
   });
 
+document.getElementById("signup_form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const params = JSON.stringify(data);
+  console.log(params);
+
+  if (data["confirm_password"] != data["password"]) {
+    alert("password and confirm password not equal");
+    return;
+  }
+
+  const res = await fetch(BACKEND_URL + "/signup", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: params,
+  });
+
+  const error = await res.json();
+
+  if (error && error["error"]) {
+    alert("ERROR: " + error["error"]);
+  }
+});
+
 // login form submit handlers
 document.getElementById("login_form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -207,53 +232,6 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-// login form submit handlers
-document.getElementById("login_form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const params = JSON.stringify(Object.fromEntries(new FormData(e.target)));
-  console.log(params);
-
-  const res = await fetch(BACKEND_URL + "/login", {
-    method: "POST",
-    mode: "cors",
-    headers: { "Content-Type": "application/json" },
-    body: params,
-  });
-
-  const { token } = await res.json();
-  if (token == null) {
-    // TODO: proper password not correct alert.
-    alert("email or password was not correct.");
-    return;
-  }
-  localStorage.setItem("token", token);
-  console.log(`set token ${localStorage.getItem("token")}`);
-});
-
-document.getElementById("signup_form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  const params = JSON.stringify(data);
-  console.log(params);
-
-  if (data["confirm_password"] != data["password"]) {
-    alert("password and confirm password not equal");
-    return;
-  }
-
-  const res = await fetch(BACKEND_URL + "/signup", {
-    method: "POST",
-    mode: "cors",
-    headers: { "Content-Type": "application/json" },
-    body: params,
-  });
-
-  const error = await res.json();
-
-  if (error && error["error"]) {
-    alert("ERROR: " + error["error"]);
-  }
-});
 
 //event
 function handleFiles(files) {
