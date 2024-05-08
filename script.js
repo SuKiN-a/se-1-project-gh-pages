@@ -224,14 +224,88 @@ forgotPwCancelLink.addEventListener("click", (e) => {
   showLoginForm();
 });
 
+//Forms opening and closing
+
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+  document.getElementById("creatEventForm").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+  document.getElementById("creatEventForm").style.display = "none";
 }
 
+function openForm1() {
+  document.getElementById("createteamform").style.display = "block";
+}
+
+function closeForm1() {
+  document.getElementById("createteamform").style.display = "none";
+}
+
+function openTeamCardForm() {
+  document.getElementById("teamCardForm").style.display = "block";
+}
+
+function closeTeamCardForm() {
+  document.getElementById("teamCardForm").style.display = "none";
+}
+
+function showPopup() {
+  document.getElementById("joinRequestPopup").style.display = "block";
+}
+
+function hidePopup() {
+  document.getElementById("joinRequestPopup").style.display = "none";
+  document.getElementById("joinButton").textContent = "QUIT TEAM";
+}
+
+// login form submit handlers
+document.getElementById("login_form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const params = JSON.stringify(Object.fromEntries(new FormData(e.target)));
+  console.log(params);
+
+  const res = await fetch(BACKEND_URL + "/login", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: params,
+  });
+
+  const { token } = await res.json();
+  if (token == null) {
+    // TODO: proper password not correct alert.
+    alert("email or password was not correct.");
+    return;
+  }
+  localStorage.setItem("token", token);
+  console.log(`set token ${localStorage.getItem("token")}`);
+});
+
+document.getElementById("signup_form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const params = JSON.stringify(data);
+  console.log(params);
+
+  if (data["confirm_password"] != data["password"]) {
+    alert("password and confirm password not equal");
+    return;
+  }
+
+  const res = await fetch(BACKEND_URL + "/signup", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: params,
+  });
+
+  const error = await res.json();
+
+  if (error && error["error"]) {
+    alert("ERROR: " + error["error"]);
+  }
+});
 
 //event
 function handleFiles(files) {
@@ -251,18 +325,6 @@ function previewFile() {
   } else {
     preview.src = "upload icon.png";
   }
-}
-
-// Function to open the form
-function openForm() {
-  document.getElementById("creatEventForm").style.display = "block";
-  document.getElementById("createteamform").style.display = "block";
-}
-
-// Function to close the form
-function closeForm() {
-  document.getElementById("creatEventForm").style.display = "none";
-  document.getElementById("createteamform").style.display = "none";
 }
 
 //signup button

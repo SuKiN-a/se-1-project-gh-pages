@@ -679,10 +679,8 @@ s .view-more {
   background-color: #e1811f;
 }
 .registration {
-  width: 500px;
   position: absolute;
   border-radius: 8px;
-  background-color: #ca1717;
   height: 720px;
   overflow: hidden;
   text-align: left;
@@ -692,11 +690,14 @@ s .view-more {
   left: 20%;
   top: -20%;
   justify-content: center;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 56%; /* Could be more or less, depending on screen size */
 }
 
 /* The form container */
 #creatEventForm {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -706,12 +707,4 @@ s .view-more {
   overflow-y: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* The form content */
-.registration {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  width: 56%; /* Could be more or less, depending on screen size */
 }

@@ -445,6 +445,17 @@ a {
   display: inline-block;
   width: 246px;
 }
+.details {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #999;
+  display: inline-block;
+  width: 246px;
+}
 .view-more {
   position: relative;
   text-transform: uppercase;
@@ -480,7 +491,7 @@ a {
 /* team card container */
 .team-card-container {
   width: 82%;
-  position: relative;
+  position: absolute;
   border-radius: 8px solid #000;
   background-color: transparent;
   overflow: hidden;
@@ -489,7 +500,7 @@ a {
   font-size: 14px;
   color: #333;
   font-family: Inter;
-  top: -75px;
+  top: 170px;
   left: 109px;
   justify-content: center;
   align-items: center;
@@ -628,7 +639,7 @@ a {
 .create_team_form {
   display: flex;
   width: 30%;
-  position: relative;
+  position: absolute;
   border-radius: 8px;
   background-color: #fff;
   height: 520px;
@@ -637,7 +648,401 @@ a {
   font-size: 24px;
   color: #333;
   font-family: Inter;
-  z-index: 100;
   top: -180px;
   left: 500px;
+  background-color: #fefefe;
+  margin: 18.3% auto;
+  padding: 20px;
 }
+#createteamform {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* team's main frame */
+.whole-frame {
+  position: relative;
+  width: 100%;
+  height: 530px;
+  background-color: transparent;
+  overflow-y: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  top: -190px;
+}
+.main_frame {
+  width: 61%;
+  position: relative;
+  border-radius: 12px;
+  background-color: #fff;
+  height: 864px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  font-family: Inter;
+  top: -205px;
+  left: 107px;
+}
+.team-name {
+  position: absolute;
+  top: 45px;
+  left: calc(50% - 375px);
+  font-size: 28px;
+}
+.team_description {
+  position: absolute;
+  top: 89px;
+  left: calc(50% - 375px);
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #999;
+  display: inline-block;
+  width: 522px;
+}
+.team-details {
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 375px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+.detail-one {
+  display: flex;
+  flex-direction: row;
+}
+.detail-two {
+  display: flex;
+  flex-direction: row;
+}
+.all_events {
+  position: absolute;
+  top: 190px;
+  left: calc(50% - 375px);
+  width: 893px;
+  height: 35px;
+  font-size: 18px;
+  color: #e1811f;
+}
+.line {
+  width: 80px;
+  position: relative;
+  background-color: #e1811f;
+  height: 3px;
+  background-color: #e1811f;
+}
+.events-container-frame {
+  position: absolute;
+  top: 223px;
+  left: 10px;
+  height: 641px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 0px 0px;
+  box-sizing: border-box;
+  gap: 20px;
+  font-size: 14px;
+  width: 790px;
+  background-color: transparent;
+}
+.individual-event-frame {
+  width: 780px;
+  position: relative;
+  border-radius: 8px;
+  background-color: #eeeeee;
+  height: 100px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.photo-frame {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: 0px;
+  width: 178px;
+  height: 100px;
+  object-fit: cover;
+}
+.event-title {
+  position: absolute;
+  top: 15px;
+  left: 198px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #343434;
+}
+.event-description {
+  position: absolute;
+  top: 38px;
+  left: 198px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #999;
+  display: inline-block;
+  width: 401px;
+}
+.date-members-frame {
+  position: absolute;
+  top: 68px;
+  left: 198px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  background-color: transparent;
+}
+.date-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  background-color: transparent;
+}
+.members-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  background-color: transparent;
+}
+.button-small-frame {
+  position: absolute;
+  top: calc(50% + -10px);
+  left: 520px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: transparent;
+  width: 270px;
+  padding: 14px;
+}
+.btn-view-more {
+  width: 110px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.btn-view-more:hover {
+  background-color: #e1811f;
+  color: #fff;
+}
+.btn-register {
+  width: 110px;
+  border-radius: 4px;
+  background-color: #333;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-register:hover {
+  background-color: #e1811f;
+  color: #fff;
+}
+.filter-parent {
+  position: absolute;
+  top: 190px;
+  left: 680px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #999;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #333;
+}
+
+/* small container at side */
+.team_leader_container {
+  width: 20%;
+  position: relative;
+  border-radius: 16px;
+  background-color: #fff;
+  height: 257px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  font-family: Inter;
+  left: 955px;
+  top: 50px;
+  background-color: #fff;
+}
+.container_title {
+  position: absolute;
+  top: 30px;
+  left: calc(50% - 118.5px);
+  font-size: 14px;
+  color: #999;
+}
+.team_leader_name {
+  position: absolute;
+  top: 70px;
+  left: calc(50% - 118.5px);
+  font-size: 18px;
+  font-weight: 600;
+}
+.leader_buttons_frame {
+  position: absolute;
+  top: 110px;
+  left: calc(50% - 118.5px);
+  border-radius: 4px;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  width: 237px;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+}
+.send_message_btn {
+  width: 200px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-family: Inter;
+}
+.send_message_btn:hover {
+  background-color: #e1811f;
+  color: #fff;
+}
+.request_join_btn {
+  width: 200px;
+  border-radius: 4px;
+  background-color: #333333;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px;
+  color: #fff;
+  cursor: pointer;
+}
+.request_join_btn:hover {
+  background-color: #e1811f;
+  color: #fff;
+  font-family: Inter;
+}
+/* End of whole-frame */
+
+/* team join popup */
+.team_join_popup {
+  width: 30%;
+  position: relative;
+  border-radius: 8px;
+  background-color: #ccc;
+  height: 220px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  font-family: Inter;
+  z-index: 10;
+  top: -55%;
+  left: 30%;
+}
+.team_join_popup img {
+  position: absolute;
+  top: 10px;
+  left: 365px;
+}
+.heading-1 {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 140px);
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.heading-2 {
+  position: absolute;
+  top: 85px;
+  left: calc(50% - 170px);
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 341px;
+}
+.done-button {
+  position: absolute;
+  top: 155px;
+  left: calc(50% - 120px);
+  border-radius: 4px;
+  background-color: #343434;
+  width: 240px;
+  height: 44px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 16px;
+  color: #fff;
+}
+/* End of team join popup */

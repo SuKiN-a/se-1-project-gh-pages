@@ -51,11 +51,11 @@
           <button class="filter-button" onclick="toggleFilterForm()">
             FILTER<img src="filter icon.png" alt="filter-icon" />
           </button>
-          <button class="open-button" onclick="openForm()">CREATE TEAM</button>
+          <button class="open-button" onclick="openForm1()">CREATE TEAM</button>
         </div>
 
         <!-- Create Team Form -->
-        <form id="createteamform">
+        <form id="createteamform" style="display: none">
           <div class="create_team_form">
             <b class="form_heading">create team</b>
             <img
@@ -63,7 +63,7 @@
               alt="cross"
               id="cross"
               class="cross"
-              onclick="closeForm()"
+              onclick="closeForm1()"
             />
 
             <div class="frame-parent">
@@ -116,17 +116,106 @@
           </div>
           <div class="frame-parent">
             <img src="team members icon.png" alt="team icon" />
-            <div class="div">620</div>
+            <div class="details">620</div>
           </div>
           <div class="frame-group">
             <img src="flag icon.png" alt="flag icon" />
-            <div class="div">6</div>
+            <div class="details">6</div>
           </div>
 
-          <button class="view-more-button" id="teamcardbutton">
+          <button
+            class="view-more-button"
+            id="teamcardbutton"
+            onclick="openTeamCardForm()"
+          >
             VIEW MORE
           </button>
         </div>
+
+        <div class="whole-frame" id="teamCardForm" style="display: none">
+          <!--small container at side-->
+          <div class="team_leader_container">
+            <div class="container_title">Team Leader</div>
+            <div class="team_leader_name">Team Leader Name</div>
+            <div class="leader_buttons_frame">
+              <button class="send_message_btn">Send a message</button>
+              <button
+                class="request_join_btn"
+                id="joinButton"
+                onclick="showPopup()"
+              >
+                Request to join
+              </button>
+            </div>
+          </div>
+
+          <!--main frame-->
+          <div class="main_frame">
+            <b class="team-name">Team Name</b>
+            <div class="team_description">
+              Shoot hoops, dominate the court, score big.
+            </div>
+            <div class="team-details">
+              <div class="detail-one">
+                <img alt="" src="team members icon.png" />
+                <div class="main_members">Member: 620</div>
+              </div>
+              <div class="detail-two">
+                <img alt="" src="flag icon.png" />
+                <div class="main_events">Events: 6</div>
+              </div>
+            </div>
+            <div class="all_events">
+              All Events
+              <div class="line"></div>
+            </div>
+            <button class="filter-parent">
+              Filter
+              <img alt="" src="filter icon black.png" />
+            </button>
+            <div class="events-container-frame">
+              <div class="individual-event-frame">
+                <img class="photo-frame" alt="" src="event-banner.png" />
+
+                <div class="event-title">Event Title</div>
+                <div class="event-description">
+                  Shoot hoops, dominate the court, score big.
+                </div>
+                <div class="date-members-frame">
+                  <div class="date-frame">
+                    <img alt="" src="calander icon.png" />
+
+                    <div class="date-members">06/27/2024 - 06/30/2024</div>
+                  </div>
+                  <div class="members-frame">
+                    <img alt="" src="members icon.png" />
+
+                    <div class="date-members">2 / 20</div>
+                  </div>
+                </div>
+                <div class="button-small-frame">
+                  <button class="btn-view-more">VIEW MORE</button>
+                  <button class="btn-register">REGISTER</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of whole frame -->
+        <!--Team Joining Request successful popup-->
+        <div
+          class="team_join_popup"
+          id="joinRequestPopup"
+          style="display: none"
+        >
+          <img src="cross icon.png" alt="Close" onclick="hidePopup()" />
+          <h1 class="heading-1">Request successful</h1>
+          <h3 class="heading-2">
+            Please wait for the team leader to approve your request.
+          </h3>
+          <button class="done-button" onclick="hidePopup()">DONE</button>
+        </div>
+        <!--End of Team Joining Request successful popup-->
       </div>
 
       <div class="form_container">
@@ -264,7 +353,6 @@
         </div>
       </div>
     </section>
-
     <!-- JavaScript script -->
     <script src="script.js"></script>
   </body>
