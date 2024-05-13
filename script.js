@@ -190,12 +190,16 @@ formOpenBtn.addEventListener("click", showForm);
 formCloseBtn.addEventListener("click", hideForm);
 
 // Event listener for toggling password visibility
-pwShowHide.forEach((icon) => {
+pwShowHide.forEach((uil) => {
   icon.addEventListener("click", () => {
-    const getPwInput = icon.parentElement.querySelector("input");
-    getPwInput.type = getPwInput.type === "password" ? "text" : "password";
-    icon.classList.toggle("uil-eye");
-    icon.classList.toggle("uil-eye-slash");
+    let getPwInput = icon.parentElement.querySelector("input");
+    if (getPwInput.type === "password") {
+      getPwInput.type = "text";
+      icon.classList.replace("uil-eye-slash", "uil-eye");
+    } else {
+      getPwInput.type = "password";
+      icon.classList.replace("uil-eye", "uil-eye-slash");
+    }
   });
 });
 
@@ -232,6 +236,13 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("creatEventForm").style.display = "none";
+}
+function toggleFilterForm() {
+  document.getElementById("filterform").style.display = "block";
+}
+
+function closeFilterForm() {
+  document.getElementById("filterform").style.display = "none";
 }
 
 function openForm1() {

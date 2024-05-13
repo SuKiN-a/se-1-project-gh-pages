@@ -99,12 +99,37 @@
           </div>
         </form>
 
-        <div class="filter-form-container">
-          <div class="filter-form">
-            <!-- Filter form content -->
-            <!-- ... -->
-          </div>
+        <!--Filter form-->
+    <form class="filterform" id="filterform" style="display: none">
+      <img
+        src="cross icon.png"
+        alt="filter cross"
+        id="filterform"
+        class="filtercross"
+        onclick="closeFilterForm()"
+      />
+      <div class="clear-parent">
+        <div class="clear">
+          Clear
+          <img alt="" src="clear icon.png" />
         </div>
+      </div>
+
+      <div class="team-parent">
+        <div class="heading2">Team</div>
+        <div class="frame-for-options">
+          <button class="filterbtn1">All</button>
+          <button class="filterbtn2">Joined</butt>
+        </div>
+      </div>
+      <div class="heading1">Filter</div>
+      <div class="frame-for-btns">
+        <button class="btn1">Apply</button>
+        <button class="btn2">Cancel</button>
+      </div>
+      <div class="lineabove"></div>
+    </form>
+    <!--Filter form end-->
 
         <!-- Team cards container -->
         <div class="team-card-container">
@@ -203,6 +228,7 @@
         </div>
         <!-- End of whole frame -->
         <!--Team Joining Request successful popup-->
+
         <div
           class="team_join_popup"
           id="joinRequestPopup"
@@ -215,6 +241,7 @@
           </h3>
           <button class="done-button" onclick="hidePopup()">DONE</button>
         </div>
+
         <!--End of Team Joining Request successful popup-->
       </div>
 
