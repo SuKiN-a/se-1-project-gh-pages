@@ -104,7 +104,7 @@
       <img
         src="cross icon.png"
         alt="filter cross"
-        id="filterform"
+        id="filtercross"
         class="filtercross"
         onclick="closeFilterForm()"
       />
@@ -125,7 +125,7 @@
       <div class="heading1">Filter</div>
       <div class="frame-for-btns">
         <button class="btn1">Apply</button>
-        <button class="btn2">Cancel</button>
+        <button class="btn2" onclick="closeFilterForm()">Cancel</button>
       </div>
       <div class="lineabove"></div>
     </form>
@@ -176,6 +176,13 @@
 
           <!--main frame-->
           <div class="main_frame">
+            <img
+        src="cross icon.png"
+        alt="Frame cross"
+        id="framecross"
+        class="framecross"
+        onclick="closeFilterForm()"
+      />
             <b class="team-name">Team Name</b>
             <div class="team_description">
               Shoot hoops, dominate the court, score big.
@@ -219,8 +226,10 @@
                   </div>
                 </div>
                 <div class="button-small-frame">
-                  <button class="btn-view-more">VIEW MORE</button>
-                  <button class="btn-register">REGISTER</button>
+                  <a href="event.html">
+                    <button class="btn-view-more">VIEW MORE</button>
+                  </a>
+                  <button class="btn-register" onclick="changeText(this)">REGISTER</button>
                 </div>
               </div>
             </div>

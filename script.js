@@ -12,7 +12,8 @@ const forgotPwForm = document.querySelector(".forgot_password_form");
 const forgotPwCancelLink = document.querySelector(
   ".forgot_password_form .cancel_link"
 );
-const loginForm = document.querySelector(".login_form"); // Define login form element
+const loginForm = document.getElementById("login_form");
+const signupForm = document.getElementById("signup_form");
 
 // Function to show the form
 function showForm() {
@@ -30,20 +31,20 @@ function hideForm() {
 function showLoginForm() {
   loginForm.style.display = "block";
   signupForm.style.display = "none";
-  forgotPasswordForm.style.display = "none";
+  forgotPwForm.style.display = "none";
 }
 
 // Function to show only the signup form
 function showSignupForm() {
   loginForm.style.display = "none";
   signupForm.style.display = "block";
-  forgotPasswordForm.style.display = "none";
+  forgotPwForm.style.display = "none";
 }
 
 // Function to show forgot password form and hide login form
 function showForgotPasswordForm() {
-  login_form.style.display = "none";
-  forgot_password_form.style.display = "block";
+  loginForm.style.display = "none";
+  forgotPwForm.style.display = "block";
 }
 
 // Event listener for opening the form
@@ -66,29 +67,31 @@ pwShowHide.forEach((icon) => {
 signupBtn.addEventListener("click", (e) => {
   e.preventDefault();
   formContainer.classList.add("active");
-  loginForm.style.display = "none"; // Hide login form when showing signup form
+  showSignupForm();
+  loginForm.style.display = "none";
 });
 
 // Event listener for switching to login form
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
   formContainer.classList.remove("active");
+  showLoginForm();
 });
 
 // Event listener for clicking on the "Forgot password?" link
-document
-  .getElementById("forgot_pw_link")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("forgot_password_form").style.display = "block";
-  });
+forgotPwLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  showForgotPasswordForm();
+});
 
 // Event listener for clicking on the "Cancel" link in the forgot password form
 document
   .getElementById("go_back_button")
   .addEventListener("click", function () {
+    document.getElementById("signup_form").style.display = "none";
     document.getElementById("forgot_password_form").style.display = "none";
     document.getElementById("login_form").style.display = "block";
+    loginForm.classList.add("active");
   });
 
 document.getElementById("signup_form").addEventListener("submit", async (e) => {
@@ -139,94 +142,10 @@ document.getElementById("login_form").addEventListener("submit", async (e) => {
   console.log(`set token ${localStorage.getItem("token")}`);
 });
 
-// Event listener for switching to signup form
-signupBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.add("active");
-  showSignupForm();
-});
-
-// Event listener for switching to login form
-loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.remove("active");
-  showLoginForm();
-});
-function showForm() {
-  home.classList.add("show");
+//Change text on button click
+function changeText(element) {
+  element.textContent = "REGISTERED";
 }
-
-// Function to hide the form
-function hideForm() {
-  home.classList.remove("show");
-  // Hide login and signup forms when closing the main form
-  formContainer.classList.remove("active");
-}
-
-// Function to show only the login form
-function showLoginForm() {
-  loginForm.style.display = "block";
-  signupForm.style.display = "none";
-  forgotPasswordForm.style.display = "none";
-}
-
-// Function to show only the signup form
-function showSignupForm() {
-  loginForm.style.display = "none";
-  signupForm.style.display = "block";
-  forgotPasswordForm.style.display = "none";
-}
-
-// Function to show forgot password form and hide login form
-function showForgotPasswordForm() {
-  login_form.style.display = "none";
-  forgot_password_form.style.display = "block";
-}
-
-// Event listener for opening the form
-formOpenBtn.addEventListener("click", showForm);
-
-// Event listener for closing the form
-formCloseBtn.addEventListener("click", hideForm);
-
-// Event listener for toggling password visibility
-pwShowHide.forEach((uil) => {
-  icon.addEventListener("click", () => {
-    let getPwInput = icon.parentElement.querySelector("input");
-    if (getPwInput.type === "password") {
-      getPwInput.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
-    } else {
-      getPwInput.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
-    }
-  });
-});
-
-// Event listener for switching to signup form
-signupBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.add("active");
-  loginForm.style.display = "none"; // Hide login form when showing signup form
-});
-
-// Event listener for switching to login form
-loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.remove("active");
-});
-
-// Event listener for clicking on the "Forgot password?" link
-forgotPwLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  showForgotPasswordForm();
-});
-
-// Event listener for clicking on the "Cancel" link in the forgot password form
-forgotPwCancelLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  showLoginForm();
-});
 
 //Forms opening and closing
 
@@ -259,6 +178,10 @@ function openTeamCardForm() {
 
 function closeTeamCardForm() {
   document.getElementById("teamCardForm").style.display = "none";
+}
+
+function closeFrameForm() {
+  document.querySelector(".whole-frame").style.display = "none";
 }
 
 function showPopup() {
@@ -357,7 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
     this.style.display = "none";
   });
 });
-// Your code goes here
 async function createTeam(title, description, maximum_number) {
   let token = localStorage.getItem("token");
   const res = await fetch(BACKEND_URL + "/team/new", {
