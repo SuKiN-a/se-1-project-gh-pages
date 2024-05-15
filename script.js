@@ -116,6 +116,8 @@ document.getElementById("signup_form").addEventListener("submit", async (e) => {
 
   if (error && error["error"]) {
     alert("ERROR: " + error["error"]);
+  } else {
+    alert(`Signed up as user: ${data.username}. Proceed to log in.`)
   }
 });
 
@@ -137,7 +139,10 @@ document.getElementById("login_form").addEventListener("submit", async (e) => {
     // TODO: proper password not correct alert.
     alert("email or password was not correct.");
     return;
+  } else {
+    alert(`Logged in as user: ${data.username}`)
   }
+
   localStorage.setItem("token", token);
   console.log(`set token ${localStorage.getItem("token")}`);
 });
